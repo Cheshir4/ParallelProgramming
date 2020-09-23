@@ -1,0 +1,55 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+
+./lab1-seq-clang $N1 > seq_clang.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-seq-clang $N >> seq_clang.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-clang-2 $N1 > par2_clang.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-clang-2 $N >> par2_clang.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-clang-3 $N1 > par3_clang.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-clang-3 $N >> par3_clang.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-clang-4 $N1 > par4_clang.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-clang-4 $N >> par4_clang.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-clang-8 $N1 > par8_clang.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-clang-8 $N >> par8_clang.txt
+N=$(($N+$delta))
+done
+

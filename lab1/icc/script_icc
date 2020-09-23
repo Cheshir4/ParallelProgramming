@@ -1,0 +1,55 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+
+./lab1-icc-seq $N1 > seq_icc.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-icc-seq $N >> seq_icc.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-icc-par-2 $N1 > par2_icc.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-icc-par-2 $N >> par2_icc.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-icc-par-3 $N1 > par3_icc.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-icc-par-3 $N >> par3_icc.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-icc-par-4 $N1 > par4_icc.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-icc-par-4 $N >> par4_icc.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-icc-par-8 $N1 > par8_icc.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-icc-par-8 $N >> par8_icc.txt
+N=$(($N+$delta))
+done
+

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+
+./lab1-seq $N1 > seq.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-seq $N >> seq.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-2 $N1 > par2.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-2 $N >> par2.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-3 $N1 > par3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-3 $N >> par3.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-4 $N1 > par4.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-4 $N >> par4.txt
+N=$(($N+$delta))
+done
+
+
+./lab1-par-8 $N1 > par8.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab1-par-8 $N >> par8.txt
+N=$(($N+$delta))
+done
+
