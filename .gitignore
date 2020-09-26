@@ -3,3 +3,5 @@ main.pdf
 *.optrpt
 lab1-*-*
 .*odt#
+.idea/
+lab2-fw
