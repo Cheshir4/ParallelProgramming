@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <math.h>
+#include <fwBase.h>
+#include <fwImage.h>
 
 #define A 480
 
@@ -42,8 +44,13 @@ int main(int argc, char* argv[])
                            m2[j] = m2[j] + m2_copy[j-1];
                         } 
 
-                    m2[j] = fabs(tan(m2[j]));
+                    m2[j] = tan(m2[j]);
                 }
+                FwiSize size = {
+                	.width=N/2,
+                	.height=1};
+                	
+                fwiAbs_32f_C4IR(m2, sizeof(float), size);
 
 
             /* Этап Merge */
