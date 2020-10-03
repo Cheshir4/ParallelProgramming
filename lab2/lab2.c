@@ -18,6 +18,8 @@ int main(int argc, char* argv[])
 
     N = atoi(argv[1]); /* N равен первому параметру командной строки */
     M = atoi(argv[2]); /* M равен второму параметру командной строки */
+    
+    //fwStaticInit();
 
     fwSetNumThreads(M);
 
@@ -26,26 +28,37 @@ int main(int argc, char* argv[])
     for (i = 0; i < 50; i++) /* 50 экспериментов */
     {
 
-        srand(i);  /* инициализировать начальное значение ГСЧ   */
+        //srand(i);  /* инициализировать начальное значение ГСЧ   */
         unsigned int my_seed[1];
         my_seed[0] = i;
 
         /* 1. Generate */
-        float m1[N];
+        //unsigned int *my_seed = malloc(sizeof(unsigned int));
+        /*float m1[N];
         float m2[N/2];
         float m2_copy[N/2+1];
 
-        float temp[N];
+        float temp[N];*/
+        
+        float *m1 = (float*)malloc(sizeof(float)*N);
+        float *m2 = (float*)malloc(sizeof(float)*N/2);
+        float *m2_copy = (float*)malloc(sizeof(float)*N/2+1);
+        float *temp = (float*)malloc(sizeof(float)*N);
+        
+        
 
         for (j = 0; j < N; j++)
         {
             m1[j] = rand_r(my_seed) % A + 1;
+            
+            printf("m1[%d]: %f \n", j, m1[j]);
         }
 
         m2_copy[0] = 0;
         for (j = 0; j < N/2; j++)
         {
             m2[j] = rand_r(my_seed) % (9*A + 1) + A;
+            printf("m2[%d]: %f \n", j, m2[j]);
             /* Подготавливаем копию для удобства сложения */
             m2_copy[j+1] = m2[j];
         }
@@ -70,6 +83,8 @@ int main(int argc, char* argv[])
         /* Считаем модуль тангенса */
         fwsAbs_32f(temp, m2, N/2);
 
+	 //printf("blablabla\n"); /* T2 -T1 */
+	
         /* 3. Merge */
         for (j=0; j<N/2; j++)
         {
@@ -112,6 +127,11 @@ int main(int argc, char* argv[])
                 X = X + sin(m2[j]);
             }
         }
+        
+        free(m1);
+        free(m2);
+        free(m2_copy);
+        free(temp);
 
     }
     
@@ -119,5 +139,7 @@ int main(int argc, char* argv[])
     delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
     printf("\nN=%d. Milliseconds passed: %ld\n", N, delta_ms); /* T2 -T1 */
     printf("\nX: %f\n", X); /* T2 -T1 */
+    
+    
     return 0;
 }

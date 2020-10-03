@@ -1,0 +1,80 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+export LD_LIBRARY_PATH=~/Загрузки/FW_1.3.1_Lin64/lib
+
+./lab2-fw $N1 1 > seq_fw.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 1 >> seq_fw.txt
+N=$(($N+$delta))
+done
+
+
+./lab2-fw $N1 2 > par_fw_2.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 2 >> par_fw_2.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 3 > par_fw_3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 3 >> par_fw_3.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 4 > par_fw_4.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 4 >> par_fw_4.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 8 > par_fw_8.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 8 >> par_fw_8.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 16 > par_fw_16.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 16 >> par_fw_16.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 32 > par_fw_32.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 32 >> par_fw_32.txt
+N=$(($N+$delta))
+done
+
+./lab2-fw $N1 64 > par_fw_64.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab2-fw $N 64 >> par_fw_64.txt
+N=$(($N+$delta))
+done
+

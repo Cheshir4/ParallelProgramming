@@ -1,0 +1,23 @@
+#!/bin/bash
+
+N2=1944
+export LD_LIBRARY_PATH=~/Загрузки/FW_1.3.1_Lin64/lib
+
+./lab2-fw $N2 1 > part7_fw.txt
+
+./lab2-fw $N2 2 >> part7_fw.txt
+
+./lab2-fw $N2 3 >> part7_fw.txt
+
+./lab2-fw $N2 4 >> part7_fw.txt
+
+./lab2-fw $N2 8 >> part7_fw.txt
+
+./lab2-fw $N2 16 >> part7_fw.txt
+
+./lab2-fw $N2 32 >> part7_fw.txt
+
+echo "proofs"
+
+./lab2-fw 9000000000 4 >> part7_fw.txt
+

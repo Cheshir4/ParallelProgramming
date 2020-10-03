@@ -1,0 +1,28 @@
+
+N=1944. Milliseconds passed: 7438
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7449
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7457
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7454
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7517
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7455
+
+X: 20416.748047
+
+N=1944. Milliseconds passed: 7477
+
+X: 20416.748047
