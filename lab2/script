@@ -3,7 +3,7 @@
 delta=176
 N1=184
 N2=1944
-export LD_LIBRARY_PATH=~/Загрузки/FW_1.3.1_Lin64/lib
+export LD_LIBRARY_PATH=/home/cheshir/Загрузки/FW_1.3.1_Lin64/lib
 
 ./lab2-fw $N1 1 > seq_fw.txt
 N=$(($N1+$delta))
