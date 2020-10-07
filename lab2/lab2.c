@@ -51,14 +51,14 @@ int main(int argc, char* argv[])
         {
             m1[j] = rand_r(my_seed) % A + 1;
             
-            printf("m1[%d]: %f \n", j, m1[j]);
+            //printf("m1[%d]: %f \n", j, m1[j]);
         }
 
         m2_copy[0] = 0;
         for (j = 0; j < N/2; j++)
         {
             m2[j] = rand_r(my_seed) % (9*A + 1) + A;
-            printf("m2[%d]: %f \n", j, m2[j]);
+            //printf("m2[%d]: %f \n", j, m2[j]);
             /* Подготавливаем копию для удобства сложения */
             m2_copy[j+1] = m2[j];
         }
