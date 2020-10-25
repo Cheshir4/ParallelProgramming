@@ -1,0 +1,46 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+N3=7
+
+
+
+./lab3-mp-schedule $N1 2 > par_2-mp_g$N3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab3-mp-schedule $N 2 >> par_2-mp_g$N3.txt
+N=$(($N+$delta))
+done
+
+./lab3-mp-schedule $N1 3 > par_3-mp_g$N3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab3-mp-schedule $N 3 >> par_3-mp_g$N3.txt
+N=$(($N+$delta))
+done
+
+./lab3-mp-schedule $N1 4 > par_4-mp_g$N3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab3-mp-schedule $N 4 >> par_4-mp_g$N3.txt
+N=$(($N+$delta))
+done
+
+./lab3-mp-schedule $N1 8 > par_8-mp_g$N3.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab3-mp-schedule $N 8 >> par_8-mp_g$N3.txt
+N=$(($N+$delta))
+done
+
+
