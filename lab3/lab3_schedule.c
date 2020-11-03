@@ -10,7 +10,7 @@ int omp_set_num_threads(int M) { return 1; }
 #endif
 
 #define A 480
-#define S 7
+#define S 1
 
 
 int main(int argc, char* argv[])
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     omp_set_num_threads(M); 
     
     
-    #pragma omp parallel for default(none) private(i) shared(N,e) reduction(+:X) schedule(guided, S)
+    #pragma omp parallel for default(none) private(i) shared(N,e) reduction(+:X) schedule(static, S)
     for (i=0; i<50; i++) /* 50 экспериментов */
         {
         int j, tmp;
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
         }
         //}
 //}
-	#pragma omp parallel for default(none) private(j) shared(N, m2, m2_copy) schedule(guided, S)
+	#pragma omp parallel for default(none) private(j) shared(N, m2, m2_copy) schedule(static, S)
         for (j = 0; j < N/2; j++)
         {
             /* Подготавливаем копию для удобства сложения */
@@ -87,13 +87,13 @@ int main(int argc, char* argv[])
             
             /* 2. Map */
             /* Решить поставленную задачу, заполнить массив с результатами*/
-           #pragma omp parallel for default(none) private(j) shared(N, m1) schedule(guided,S)
+           #pragma omp parallel for default(none) private(j) shared(N, m1) schedule(static,S)
             for (j=0; j<N; j++)
                 {
                     m1[j] = 1 / tanh(sqrt(m1[j]));
                 }
                 
-            #pragma omp parallel for default(none) private(j) shared(N, m2, m2_copy) schedule(guided,S)
+            #pragma omp parallel for default(none) private(j) shared(N, m2, m2_copy) schedule(static,S)
             for (j=0; j<N/2; j++)
                 {
                     if (j != 0)
@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
 
 
             /* Этап Merge */
-	#pragma omp parallel for default(none) private(j) shared(N, m1, m2) schedule(guided,S)
+	#pragma omp parallel for default(none) private(j) shared(N, m1, m2) schedule(static,S)
             for (j=0; j<N/2; j++)
                 {
                     m2[j] = (m1[j] < m2[j]) ? m1[j] : m2[j];
@@ -140,7 +140,7 @@ int main(int argc, char* argv[])
                     j++;
                 }
                 
-		#pragma omp parallel for default(none) private(j) shared(N, min, m2)  reduction(+:X) schedule(guided,S)
+		#pragma omp parallel for default(none) private(j) shared(N, min, m2)  reduction(+:X) schedule(static,S)
             for (j=0; j<N/2; j++)
                 {
                 int temp = 0;

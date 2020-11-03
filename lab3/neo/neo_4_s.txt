@@ -1,0 +1,148 @@
+
+N=1. Milliseconds passed: 0
+
+X: 0.000000
+
+N=6. Milliseconds passed: 0
+
+X: 70.616791
+
+N=11. Milliseconds passed: 0
+
+X: 134.616837
+
+N=16. Milliseconds passed: 0
+
+X: 174.017395
+
+N=21. Milliseconds passed: 0
+
+X: 213.825256
+
+N=26. Milliseconds passed: 0
+
+X: 271.811340
+
+N=31. Milliseconds passed: 0
+
+X: 314.377197
+
+N=36. Milliseconds passed: 0
+
+X: 373.404724
+
+N=41. Milliseconds passed: 0
+
+X: 423.610870
+
+N=46. Milliseconds passed: 0
+
+X: 491.290283
+
+N=51. Milliseconds passed: 0
+
+X: 540.995605
+
+N=56. Milliseconds passed: 0
+
+X: 491.080658
+
+N=61. Milliseconds passed: 0
+
+X: 622.243286
+
+N=66. Milliseconds passed: 0
+
+X: 657.903564
+
+N=71. Milliseconds passed: 0
+
+X: 703.887512
+
+N=76. Milliseconds passed: 0
+
+X: 769.253662
+
+N=81. Milliseconds passed: 0
+
+X: 831.769409
+
+N=86. Milliseconds passed: 0
+
+X: 915.446350
+
+N=91. Milliseconds passed: 0
+
+X: 951.502197
+
+N=96. Milliseconds passed: 0
+
+X: 1013.579651
+
+N=101. Milliseconds passed: 0
+
+X: 1079.346436
+
+N=106. Milliseconds passed: 0
+
+X: 1116.731079
+
+N=111. Milliseconds passed: 0
+
+X: 1158.432861
+
+N=116. Milliseconds passed: 0
+
+X: 1265.095947
+
+N=121. Milliseconds passed: 0
+
+X: 1297.428223
+
+N=126. Milliseconds passed: 1
+
+X: 1361.822021
+
+N=131. Milliseconds passed: 1
+
+X: 1410.356201
+
+N=136. Milliseconds passed: 1
+
+X: 1474.998535
+
+N=141. Milliseconds passed: 1
+
+X: 1532.875732
+
+N=146. Milliseconds passed: 1
+
+X: 1585.337158
+
+N=151. Milliseconds passed: 1
+
+X: 1619.002686
+
+N=156. Milliseconds passed: 1
+
+X: 1702.851929
+
+N=161. Milliseconds passed: 0
+
+X: 1464.082642
+
+N=166. Milliseconds passed: 1
+
+X: 1797.203979
+
+N=171. Milliseconds passed: 1
+
+X: 1838.405029
+
+N=176. Milliseconds passed: 1
+
+X: 1877.416382
+
+N=181. Milliseconds passed: 1
+
+X: 1913.851562
