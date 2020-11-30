@@ -1,0 +1,15 @@
+#!/bin/bash
+
+delta=5
+N1=1
+N2=184
+
+./lab4-seq $N1 1 > neo.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-seq $N 1 >> neo.txt
+N=$(($N+$delta))
+done
+

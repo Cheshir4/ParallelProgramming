@@ -1,0 +1,60 @@
+#!/bin/bash
+
+delta=176
+N1=184
+N2=1944
+I=1
+step=1
+
+while [ $I -le 10 ]
+do
+
+./lab4-seq $N1 1 > seq_mp_$I.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-seq $N 1 >> seq_mp_$I.txt
+N=$(($N+$delta))
+done
+
+
+./lab4-mp $N1 2 > par_2-mp_$I.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-mp $N 2 >> par_2-mp_$I.txt
+N=$(($N+$delta))
+done
+
+./lab4-mp $N1 3 > par_3-mp_$I.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-mp $N 3 >> par_3-mp_$I.txt
+N=$(($N+$delta))
+done
+
+./lab4-mp $N1 4 > par_4-mp_$I.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-mp $N 4 >> par_4-mp_$I.txt
+N=$(($N+$delta))
+done
+
+./lab4-mp $N1 8 > par_8-mp_$I.txt
+N=$(($N1+$delta))
+
+while [ $N -le $N2 ]
+do
+./lab4-mp $N 8 >> par_8-mp_$I.txt
+N=$(($N+$delta))
+done
+
+I=$(($I+$step))
+done
+

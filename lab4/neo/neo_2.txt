@@ -1,0 +1,148 @@
+
+N=1. Milliseconds passed: 4.331770
+
+X: 0.000000
+
+N=6. Milliseconds passed: 4.865180
+
+X: 70.616806
+
+N=11. Milliseconds passed: 4.049949
+
+X: 134.616882
+
+N=16. Milliseconds passed: 4.313671
+
+X: 172.423569
+
+N=21. Milliseconds passed: 4.348318
+
+X: 213.310867
+
+N=26. Milliseconds passed: 4.319811
+
+X: 271.811340
+
+N=31. Milliseconds passed: 4.084904
+
+X: 314.377167
+
+N=36. Milliseconds passed: 6.625559
+
+X: 372.842346
+
+N=41. Milliseconds passed: 4.312590
+
+X: 423.610779
+
+N=46. Milliseconds passed: 4.421281
+
+X: 491.290527
+
+N=51. Milliseconds passed: 4.876006
+
+X: 540.995667
+
+N=56. Milliseconds passed: 4.483382
+
+X: 582.504089
+
+N=61. Milliseconds passed: 4.422989
+
+X: 622.243408
+
+N=66. Milliseconds passed: 5.201481
+
+X: 657.903625
+
+N=71. Milliseconds passed: 4.434531
+
+X: 703.887451
+
+N=76. Milliseconds passed: 5.032873
+
+X: 769.253845
+
+N=81. Milliseconds passed: 4.529479
+
+X: 831.769348
+
+N=86. Milliseconds passed: 6.619730
+
+X: 915.446533
+
+N=91. Milliseconds passed: 5.495359
+
+X: 951.502075
+
+N=96. Milliseconds passed: 7.279666
+
+X: 1013.580017
+
+N=101. Milliseconds passed: 5.025298
+
+X: 1079.346191
+
+N=106. Milliseconds passed: 6.659035
+
+X: 1116.731445
+
+N=111. Milliseconds passed: 4.847361
+
+X: 1158.433350
+
+N=116. Milliseconds passed: 4.996474
+
+X: 1265.096313
+
+N=121. Milliseconds passed: 5.045339
+
+X: 1297.428467
+
+N=126. Milliseconds passed: 5.756845
+
+X: 1361.821655
+
+N=131. Milliseconds passed: 6.272149
+
+X: 1410.356445
+
+N=136. Milliseconds passed: 5.248946
+
+X: 1474.998169
+
+N=141. Milliseconds passed: 5.856531
+
+X: 1532.876221
+
+N=146. Milliseconds passed: 6.412446
+
+X: 1585.337524
+
+N=151. Milliseconds passed: 6.163058
+
+X: 1619.002197
+
+N=156. Milliseconds passed: 5.815405
+
+X: 1702.851807
+
+N=161. Milliseconds passed: 5.927927
+
+X: 1750.908569
+
+N=166. Milliseconds passed: 8.371248
+
+X: 1797.203857
+
+N=171. Milliseconds passed: 7.085337
+
+X: 1838.405151
+
+N=176. Milliseconds passed: 6.776217
+
+X: 1877.416626
+
+N=181. Milliseconds passed: 6.785873
+
+X: 1913.958496

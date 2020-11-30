@@ -1,0 +1,50 @@
+
+N=184. Milliseconds passed: 11.783660
+
+X: 1942.668457
+
+N=360. Milliseconds passed: 22.250903
+
+X: 3860.364258
+
+N=536. Milliseconds passed: 65.013418
+
+X: 5645.499023
+
+N=712. Milliseconds passed: 138.057366
+
+X: 7508.456055
+
+N=888. Milliseconds passed: 199.690818
+
+X: 9391.876953
+
+N=1064. Milliseconds passed: 398.008465
+
+X: 11302.209961
+
+N=1240. Milliseconds passed: 627.581760
+
+X: 13156.951172
+
+N=1416. Milliseconds passed: 743.955319
+
+X: 14912.385742
+
+Program is ready on 78 %
+
+N=1592. Milliseconds passed: 1269.076617
+
+X: 16754.478516
+
+Program is ready on 56 %
+
+N=1768. Milliseconds passed: 1744.370371
+
+X: 18641.607422
+
+Program is ready on 52 %
+
+N=1944. Milliseconds passed: 1868.862193
+
+X: 20412.660156

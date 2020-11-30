@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     omp_set_num_threads(M); 
     
     
-    #pragma omp parallel for default(none) private(i) shared(N,e) reduction(+:X) 
+    //#pragma omp parallel for default(none) private(i) shared(N,e) reduction(+:X) 
     for (i=0; i<50; i++) /* 50 экспериментов */
         {
         int j, tmp;
