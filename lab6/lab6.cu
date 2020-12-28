@@ -56,7 +56,8 @@ int main(int argc, char *argv[]) {
     float X = 0;
 
     struct timeval T1, T2;
-    double delta_ms;
+    long delta_ms, delta_ms_Generate=0, delta_ms_Map=0, delta_ms_Merge=0, delta_ms_Sort=0, delta_ms_Reduce=0;
+    long time_stamp_Generate=0, time_stamp_Map=0, time_stamp_Merge=0, time_stamp_Sort=0, time_stamp_Reduce=0;
     float e = 0.00001;
 
     N = atoi(argv[1]); /* N равен первому параметру командной строки */
@@ -83,6 +84,10 @@ int main(int argc, char *argv[]) {
             m2_copy[j + 1] = m2[j];
         }
         
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Generate =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Generate += (time_stamp_Generate - time_stamp_Reduce);
+        
         /* 2. Map */
         /* Решить поставленную задачу, заполнить массив с результатами*/
         float* cm1, *cm2, *cm2_copy;
@@ -97,8 +102,16 @@ int main(int argc, char *argv[]) {
 		map_m1<<<(N+255)/256, 256>>>(N, cm1);  
 		map_m2<<<(N+255)/256, 256>>>(N / 2, cm2, cm2_copy);  
 		
+		gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Map =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Map += (time_stamp_Map - time_stamp_Generate);
+		
         /* 3. Merge */
 		merge<<<(N+255)/256, 256>>>(N / 2, cm1, cm2);  
+		
+		gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Merge =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Merge += (time_stamp_Merge - time_stamp_Map);
 
 		/* 4. Sort */
         /* Отсортировать массив с результатами указанным методом */
@@ -124,18 +137,9 @@ int main(int argc, char *argv[]) {
             } else j++;
         }
         
-        j = 0;
-        while (j < (N/2) - 1)
-        {
-            if (m2[j+1] < m2[j])
-            {
-                tmp = m2[j];
-                m2[j] = m2[j+1];
-                m2[j+1] = tmp;
-                j = 0;
-            }
-            else j++;
-        }
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Sort =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Sort += (time_stamp_Sort - time_stamp_Merge);
         
         /* 5. Reduce */
 
@@ -158,6 +162,10 @@ int main(int argc, char *argv[]) {
             }
         }
         
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Reduce =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Reduce += (time_stamp_Reduce - time_stamp_Sort);
+        
         cudaFree(cm1);
         cudaFree(cm2);
         cudaFree(cm2_copy);
@@ -167,7 +175,12 @@ int main(int argc, char *argv[]) {
     }
     gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
     delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
-    printf("\nN=%d. Milliseconds passed: %lf\n", N, delta_ms); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Generate: %ld\n", N, delta_ms_Generate); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Map: %ld\n", N, delta_ms_Map); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Merge: %ld\n", N, delta_ms_Merge); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Sort: %ld\n", N, delta_ms_Sort); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Reduce: %ld\n", N, delta_ms_Reduce); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed: %ld\n", N, delta_ms); /* T2 -T1 */
     printf("\nX: %f\n", X);
     return 0;
 }

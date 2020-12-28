@@ -1,0 +1,154 @@
+
+N=184. Milliseconds passed after Generate: 2
+
+N=184. Milliseconds passed after Map: 78
+
+N=184. Milliseconds passed after Merge: 0
+
+N=184. Milliseconds passed after Sort: 0
+
+N=184. Milliseconds passed after Reduce: 0
+
+N=184. Milliseconds passed: 80
+
+X: 1942.218262
+
+N=360. Milliseconds passed after Generate: 2
+
+N=360. Milliseconds passed after Map: 51
+
+N=360. Milliseconds passed after Merge: 0
+
+N=360. Milliseconds passed after Sort: 27
+
+N=360. Milliseconds passed after Reduce: 0
+
+N=360. Milliseconds passed: 80
+
+X: 3859.137207
+
+N=536. Milliseconds passed after Generate: 6
+
+N=536. Milliseconds passed after Map: 50
+
+N=536. Milliseconds passed after Merge: 0
+
+N=536. Milliseconds passed after Sort: 70
+
+N=536. Milliseconds passed after Reduce: 0
+
+N=536. Milliseconds passed: 126
+
+X: 5645.154297
+
+N=712. Milliseconds passed after Generate: 3
+
+N=712. Milliseconds passed after Map: 52
+
+N=712. Milliseconds passed after Merge: 0
+
+N=712. Milliseconds passed after Sort: 147
+
+N=712. Milliseconds passed after Reduce: 0
+
+N=712. Milliseconds passed: 202
+
+X: 7505.530762
+
+N=888. Milliseconds passed after Generate: 5
+
+N=888. Milliseconds passed after Map: 46
+
+N=888. Milliseconds passed after Merge: 0
+
+N=888. Milliseconds passed after Sort: 277
+
+N=888. Milliseconds passed after Reduce: 2
+
+N=888. Milliseconds passed: 330
+
+X: 9387.513672
+
+N=1064. Milliseconds passed after Generate: 1
+
+N=1064. Milliseconds passed after Map: 50
+
+N=1064. Milliseconds passed after Merge: 0
+
+N=1064. Milliseconds passed after Sort: 470
+
+N=1064. Milliseconds passed after Reduce: 0
+
+N=1064. Milliseconds passed: 521
+
+X: 11302.499023
+
+N=1240. Milliseconds passed after Generate: 7
+
+N=1240. Milliseconds passed after Map: 48
+
+N=1240. Milliseconds passed after Merge: 0
+
+N=1240. Milliseconds passed after Sort: 734
+
+N=1240. Milliseconds passed after Reduce: 4
+
+N=1240. Milliseconds passed: 793
+
+X: 13157.343750
+
+N=1416. Milliseconds passed after Generate: 2
+
+N=1416. Milliseconds passed after Map: 49
+
+N=1416. Milliseconds passed after Merge: 0
+
+N=1416. Milliseconds passed after Sort: 1094
+
+N=1416. Milliseconds passed after Reduce: 2
+
+N=1416. Milliseconds passed: 1147
+
+X: 14913.508789
+
+N=1592. Milliseconds passed after Generate: 6
+
+N=1592. Milliseconds passed after Map: 70
+
+N=1592. Milliseconds passed after Merge: 0
+
+N=1592. Milliseconds passed after Sort: 1516
+
+N=1592. Milliseconds passed after Reduce: 1
+
+N=1592. Milliseconds passed: 1593
+
+X: 16756.630859
+
+N=1768. Milliseconds passed after Generate: 4
+
+N=1768. Milliseconds passed after Map: 74
+
+N=1768. Milliseconds passed after Merge: 0
+
+N=1768. Milliseconds passed after Sort: 2073
+
+N=1768. Milliseconds passed after Reduce: 0
+
+N=1768. Milliseconds passed: 2151
+
+X: 18640.859375
+
+N=1944. Milliseconds passed after Generate: 2
+
+N=1944. Milliseconds passed after Map: 69
+
+N=1944. Milliseconds passed after Merge: 0
+
+N=1944. Milliseconds passed after Sort: 2783
+
+N=1944. Milliseconds passed after Reduce: 1
+
+N=1944. Milliseconds passed: 2855
+
+X: 20416.605469
