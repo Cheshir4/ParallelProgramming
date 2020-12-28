@@ -31,7 +31,8 @@ int main(int argc, char* argv[])
     //#pragma omp parallel for default(none) private(i) shared(N,e) reduction(+:X) 
     for (i=0; i<50; i++) /* 50 экспериментов */
         {
-        int j, tmp;
+        int j;
+        float tmp;
 
         unsigned int my_seed[1];
        	 my_seed[0] = i;
@@ -111,7 +112,10 @@ int main(int argc, char* argv[])
                 {
                     m2[j] = (m1[j] < m2[j]) ? m1[j] : m2[j];
                 }
-
+               
+		printf("\nbefore: ");
+        for(int k = 0; k < N/2; k++) printf("%.6f ", m2[k]); 
+        printf("\n");
        	 /* 4. Sort */
 
             /* Отсортировать массив с результатами указанным методом */
@@ -128,6 +132,10 @@ int main(int argc, char* argv[])
                 }
                 else j++;
             }
+            printf("after : ");
+        	for(int k = 0; k < N/2; k++) printf("%.6f ", m2[k]); 
+        	printf("\n");
+   
             /* Этап Reduce */
 
             float min = 0;

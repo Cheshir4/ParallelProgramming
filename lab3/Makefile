@@ -4,7 +4,7 @@ CFLAGS=-O3 -Wall -Werror
 seq:
 	$(CC) $(CFLAGS) -o lab3-seq -Wno-unknown-pragmas lab3.c -lm 
 	
-mp:
+mp: lab3.c
 	$(CC) $(CFLAGS) -o lab3-mp -fopenmp lab3.c -lm 
 	
 sch:

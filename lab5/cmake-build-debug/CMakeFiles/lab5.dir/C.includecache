@@ -7,6 +7,20 @@
 #IncludeRegexTransform: 
 
 /home/cheshir/Документы/Параллельные вычисления/lab5/main.c
+main.h
+/home/cheshir/Документы/Параллельные вычисления/lab5/main.h
 stdio.h
 -
+sys/time.h
+-
+unistd.h
+-
+stdlib.h
+-
+pthread.h
+-
+math.h
+-
+
+/home/cheshir/Документы/Параллельные вычисления/lab5/main.h
 

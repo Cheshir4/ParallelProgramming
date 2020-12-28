@@ -224,3 +224,17 @@ Parsed C implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/cheshir/Документы/Параллельные вычисления/lab5/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_96abd/fast && /usr/bin/make  -f CMakeFiles/cmTC_96abd.dir/build.make CMakeFiles/cmTC_96abd.dir/build
+make[1]: вход в каталог «/home/cheshir/Документы/Параллельные вычисления/lab5/cmake-build-debug/CMakeFiles/CMakeTmp»
+Building C object CMakeFiles/cmTC_96abd.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -std=gnu11 -o CMakeFiles/cmTC_96abd.dir/CheckIncludeFile.c.o   -c "/home/cheshir/Документы/Параллельные вычисления/lab5/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c"
+Linking C executable cmTC_96abd
+/snap/clion/137/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96abd.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_96abd.dir/CheckIncludeFile.c.o  -o cmTC_96abd 
+make[1]: выход из каталога «/home/cheshir/Документы/Параллельные вычисления/lab5/cmake-build-debug/CMakeFiles/CMakeTmp»
+
+
+
