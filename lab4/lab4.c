@@ -21,7 +21,9 @@ int main(int argc, char *argv[]) {
     float X = 0;
 
     //struct timeval T1, T2;
-    double delta_ms;
+    long delta_ms, delta_ms_Generate=0, delta_ms_Map=0, delta_ms_Merge=0, delta_ms_Sort=0, delta_ms_Reduce=0;
+    long time_stamp_Generate=0, time_stamp_Map=0, time_stamp_Merge=0, time_stamp_Sort=0, time_stamp_Reduce=0;
+
     float e = 0.00001;
 
     N = atoi(argv[1]); /* N равен первому параметру командной строки */
@@ -122,8 +124,21 @@ int main(int argc, char *argv[]) {
                     }
 
 
+#ifdef _OPENMP
+					t2 = omp_get_wtime();
+					time_stamp_Generate = (t2-t1)*1000;
+					delta_ms_Generate += (time_stamp_Generate - time_stamp_Reduce);
+#else
+					gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        			time_stamp_Generate =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        			delta_ms_Generate += (time_stamp_Generate - time_stamp_Reduce);
 
+#endif
+    //gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
 
+    //delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+
+    				
 
                     /* 2. Map */
                     /* Решить поставленную задачу, заполнить массив с результатами*/
@@ -141,12 +156,42 @@ int main(int argc, char *argv[]) {
                         m2[j] = fabs(tan(m2[j]));
                     }
 
+#ifdef _OPENMP
+					t2 = omp_get_wtime();
+					time_stamp_Map = (t2-t1)*1000;
+					delta_ms_Map += (time_stamp_Map - time_stamp_Generate);
+#else
+					gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Map =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Map += (time_stamp_Map - time_stamp_Generate);
+
+#endif
+    //gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+
+    //delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+
+    				
 
                     /* Этап Merge */
 #pragma omp parallel for default(none) private(j) shared(N, m1, m2)
                     for (j = 0; j < N / 2; j++) {
                         m2[j] = (m1[j] < m2[j]) ? m1[j] : m2[j];
                     }
+                    
+#ifdef _OPENMP
+					t2 = omp_get_wtime();
+					time_stamp_Merge = (t2-t1)*1000;
+					 delta_ms_Merge += (time_stamp_Merge - time_stamp_Map);
+#else
+					gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Merge =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Merge += (time_stamp_Merge - time_stamp_Map);
+#endif
+    //gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+
+    //delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+
+    				
 
                     /* 4. Sort */
 
@@ -201,6 +246,22 @@ int main(int argc, char *argv[]) {
                         } else j++;
                     }
 
+#ifdef _OPENMP
+					t2 = omp_get_wtime();
+					time_stamp_Sort = (t2-t1)*1000;
+					delta_ms_Sort += (time_stamp_Sort - time_stamp_Merge);
+#else
+					gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Sort =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Sort += (time_stamp_Sort - time_stamp_Merge);
+#endif
+    //gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+
+    //delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+
+    				
+
+
                     /* Этап Reduce */
 
                     float min = 0;
@@ -224,6 +285,17 @@ int main(int argc, char *argv[]) {
                     }
                     pr++;
                     //printf("Iteration %i is ended\n", i);
+                    
+#ifdef _OPENMP
+					t2 = omp_get_wtime();
+					time_stamp_Reduce = (t2-t1)*1000;
+					delta_ms_Reduce += (time_stamp_Reduce - time_stamp_Sort);
+#else
+					gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Reduce =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Reduce += (time_stamp_Reduce - time_stamp_Sort);
+#endif                    
+                    
                 }
             }
             
@@ -259,8 +331,12 @@ int main(int argc, char *argv[]) {
     //gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
 
     //delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
-
-    printf("\nN=%d. Milliseconds passed: %f\n", N, delta_ms); /* T2 -T1 */
+	printf("\nN=%d. Milliseconds passed after Generate: %ld\n", N, delta_ms_Generate); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Map: %ld\n", N, delta_ms_Map); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Merge: %ld\n", N, delta_ms_Merge); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Sort: %ld\n", N, delta_ms_Sort); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Reduce: %ld\n", N, delta_ms_Reduce); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed: %ld\n", N, delta_ms); /* T2 -T1 */
     printf("\nX: %f\n", X); /* T2 -T1 */
     return 0;
 }

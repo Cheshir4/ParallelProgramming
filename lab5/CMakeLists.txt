@@ -7,5 +7,5 @@ add_executable(lab5 main.c main.h)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-target_link_libraries(lab5 Threads::Threads)
+target_link_libraries(lab5 pthread)
 target_link_libraries(lab5 m)

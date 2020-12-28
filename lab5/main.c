@@ -69,7 +69,7 @@ PARALLEL(sort, {
 })
 
 void* parallel_reduce(void* arg) {
-        struct lab_data* data = (struct labData*)arg;
+        struct lab_data* data = (struct lab_data*)arg;
         int start = add(step);
         int end = start + step;
         if(end > length) end = length;
@@ -99,6 +99,7 @@ void* percent(void* arg) {
         sleep(1);
         printf("Progress: %3d%%\n", it * 2);
     }
+    return NULL;
 }
 
 int main(int argc, char *argv[]) {
@@ -110,6 +111,11 @@ int main(int argc, char *argv[]) {
 
     float X = 0;
 
+    struct timeval T1, T2;
+    long delta_ms, delta_ms_Generate=0, delta_ms_Map=0, delta_ms_Merge=0, delta_ms_Sort=0, delta_ms_Reduce=0;
+    long time_stamp_Generate=0, time_stamp_Map=0, time_stamp_Merge=0, time_stamp_Sort=0, time_stamp_Reduce=0;
+
+    gettimeofday(&T1, NULL); /* запомнить текущее время T1 */
     pthread_t percent_thread;
     pthread_create(&percent_thread, NULL, percent, NULL);
 
@@ -127,9 +133,25 @@ int main(int argc, char *argv[]) {
 
         PARALLEL_START(generate_m1, labData, 2, labData.N)
         PARALLEL_START(generate_m2, labData, 2, labData.N / 2)
+
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Generate =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Generate += (time_stamp_Generate - time_stamp_Reduce);
+
         PARALLEL_START(map_m1, labData, 2, labData.N)
         PARALLEL_START(map_m2, labData, 2, labData.N / 2)
+
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Map =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Map += (time_stamp_Map - time_stamp_Generate);
+
         PARALLEL_START(merge, labData, 2, labData.N / 2)
+
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Merge =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Merge += (time_stamp_Merge - time_stamp_Map);
+
+
         PARALLEL_START(sort, labData, 2, labData.N / 2 - 2)
 
         int j = 0;
@@ -141,6 +163,11 @@ int main(int argc, char *argv[]) {
                 j = 0;
             } else j++;
         }
+
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Sort =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Sort += (time_stamp_Sort - time_stamp_Merge);
+
 
         labData.min = 0;
 
@@ -166,15 +193,29 @@ int main(int argc, char *argv[]) {
             }
         }
 
+        gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+        time_stamp_Reduce =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+        delta_ms_Reduce += (time_stamp_Reduce - time_stamp_Sort);
+
         free(labData.m1);
         free(labData.m2);
         free(labData.m2_copy);
     }
 
+
+    gettimeofday(&T2, NULL);   /* запомнить текущее время T2 */
+    delta_ms =  1000*(T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec)/1000;
+    printf("\nN=%d. Milliseconds passed after Generate: %ld\n", labData.N, delta_ms_Generate); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Map: %ld\n", labData.N, delta_ms_Map); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Merge: %ld\n", labData.N, delta_ms_Merge); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Sort: %ld\n", labData.N, delta_ms_Sort); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed after Reduce: %ld\n", labData.N, delta_ms_Reduce); /* T2 -T1 */
+    printf("\nN=%d. Milliseconds passed: %ld\n", labData.N, delta_ms); /* T2 -T1 */
     pthread_join(percent_thread, NULL);
 
-    printf("X = %.6f", X);
+    printf("X = %.6f\n", X);
     pthread_mutex_destroy(&mutex);
+
 
     return 0;
 }

@@ -19,7 +19,7 @@ struct lab_data {
 
 #define PARALLEL(name, work) \
 void* parallel_##name(void* arg) { \
-        struct lab_data* data = (struct labData*)arg; \
+        struct lab_data* data = (struct lab_data*)arg; \
         int start = add(step); \
         int end = start + step; \
         if(end > length) end = length;                \
