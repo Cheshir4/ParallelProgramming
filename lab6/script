@@ -3,58 +3,14 @@
 delta=176
 N1=184
 N2=1944
-I=1
-step=1
 
-while [ $I -le 10 ]
-do
-
-./lab6 $N1 1 > seq_$I.txt
+./lab6 $N1 > seq_mp.txt
 N=$(($N1+$delta))
 
 while [ $N -le $N2 ]
 do
-./lab6 $N 1 >> seq_$I.txt
+./lab6 $N >> seq_mp.txt
 N=$(($N+$delta))
 done
 
-
-./lab6 $N1 2 > par_2_$I.txt
-N=$(($N1+$delta))
-
-while [ $N -le $N2 ]
-do
-./lab6 $N 2 >> par_2_$I.txt
-N=$(($N+$delta))
-done
-
-./lab6 $N1 3 > par_3_$I.txt
-N=$(($N1+$delta))
-
-while [ $N -le $N2 ]
-do
-./lab6 $N 3 >> par_3_$I.txt
-N=$(($N+$delta))
-done
-
-./lab6 $N1 4 > par_4_$I.txt
-N=$(($N1+$delta))
-
-while [ $N -le $N2 ]
-do
-./lab6 $N 4 >> par_4_$I.txt
-N=$(($N+$delta))
-done
-
-./lab6 $N1 8 > par_8_$I.txt
-N=$(($N1+$delta))
-
-while [ $N -le $N2 ]
-do
-./lab6 $N 8 >> par_8_$I.txt
-N=$(($N+$delta))
-done
-
-I=$(($I+$step))
-done
 

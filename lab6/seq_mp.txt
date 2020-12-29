@@ -1,0 +1,220 @@
+
+N=184. Milliseconds passed after Generate: 3
+
+N=184. Milliseconds passed after Map: 88
+
+N=184. Milliseconds passed after Map on GPU: 1
+
+N=184. Milliseconds passed after Merge: 0
+
+N=184. Milliseconds passed after Merge on GPU: 0
+
+N=184. Milliseconds passed after Sort: 7
+
+N=184. Milliseconds passed after Sort on GPU: 1
+
+N=184. Milliseconds passed after Reduce: 0
+
+N=184. Milliseconds passed: 98
+
+X: 1937.538330
+
+N=360. Milliseconds passed after Generate: 2
+
+N=360. Milliseconds passed after Map: 51
+
+N=360. Milliseconds passed after Map on GPU: 0
+
+N=360. Milliseconds passed after Merge: 0
+
+N=360. Milliseconds passed after Merge on GPU: 0
+
+N=360. Milliseconds passed after Sort: 27
+
+N=360. Milliseconds passed after Sort on GPU: 2
+
+N=360. Milliseconds passed after Reduce: 0
+
+N=360. Milliseconds passed: 80
+
+X: 3858.210938
+
+N=536. Milliseconds passed after Generate: 3
+
+N=536. Milliseconds passed after Map: 50
+
+N=536. Milliseconds passed after Map on GPU: 0
+
+N=536. Milliseconds passed after Merge: 0
+
+N=536. Milliseconds passed after Merge on GPU: 0
+
+N=536. Milliseconds passed after Sort: 73
+
+N=536. Milliseconds passed after Sort on GPU: 2
+
+N=536. Milliseconds passed after Reduce: 1
+
+N=536. Milliseconds passed: 128
+
+X: 5646.551758
+
+N=712. Milliseconds passed after Generate: 7
+
+N=712. Milliseconds passed after Map: 54
+
+N=712. Milliseconds passed after Map on GPU: 1
+
+N=712. Milliseconds passed after Merge: 0
+
+N=712. Milliseconds passed after Merge on GPU: 0
+
+N=712. Milliseconds passed after Sort: 142
+
+N=712. Milliseconds passed after Sort on GPU: 2
+
+N=712. Milliseconds passed after Reduce: 1
+
+N=712. Milliseconds passed: 204
+
+X: 7507.330078
+
+N=888. Milliseconds passed after Generate: 2
+
+N=888. Milliseconds passed after Map: 47
+
+N=888. Milliseconds passed after Map on GPU: 0
+
+N=888. Milliseconds passed after Merge: 0
+
+N=888. Milliseconds passed after Merge on GPU: 0
+
+N=888. Milliseconds passed after Sort: 290
+
+N=888. Milliseconds passed after Sort on GPU: 3
+
+N=888. Milliseconds passed after Reduce: 0
+
+N=888. Milliseconds passed: 339
+
+X: 9386.581055
+
+N=1064. Milliseconds passed after Generate: 3
+
+N=1064. Milliseconds passed after Map: 51
+
+N=1064. Milliseconds passed after Map on GPU: 1
+
+N=1064. Milliseconds passed after Merge: 0
+
+N=1064. Milliseconds passed after Merge on GPU: 0
+
+N=1064. Milliseconds passed after Sort: 470
+
+N=1064. Milliseconds passed after Sort on GPU: 2
+
+N=1064. Milliseconds passed after Reduce: 0
+
+N=1064. Milliseconds passed: 524
+
+X: 11299.679688
+
+N=1240. Milliseconds passed after Generate: 4
+
+N=1240. Milliseconds passed after Map: 49
+
+N=1240. Milliseconds passed after Map on GPU: 0
+
+N=1240. Milliseconds passed after Merge: 1
+
+N=1240. Milliseconds passed after Merge on GPU: 1
+
+N=1240. Milliseconds passed after Sort: 746
+
+N=1240. Milliseconds passed after Sort on GPU: 7
+
+N=1240. Milliseconds passed after Reduce: 1
+
+N=1240. Milliseconds passed: 801
+
+X: 13159.250977
+
+N=1416. Milliseconds passed after Generate: 5
+
+N=1416. Milliseconds passed after Map: 51
+
+N=1416. Milliseconds passed after Map on GPU: 0
+
+N=1416. Milliseconds passed after Merge: 0
+
+N=1416. Milliseconds passed after Merge on GPU: 0
+
+N=1416. Milliseconds passed after Sort: 1096
+
+N=1416. Milliseconds passed after Sort on GPU: 8
+
+N=1416. Milliseconds passed after Reduce: 2
+
+N=1416. Milliseconds passed: 1154
+
+X: 14912.458984
+
+N=1592. Milliseconds passed after Generate: 2
+
+N=1592. Milliseconds passed after Map: 75
+
+N=1592. Milliseconds passed after Map on GPU: 0
+
+N=1592. Milliseconds passed after Merge: 0
+
+N=1592. Milliseconds passed after Merge on GPU: 0
+
+N=1592. Milliseconds passed after Sort: 1526
+
+N=1592. Milliseconds passed after Sort on GPU: 2
+
+N=1592. Milliseconds passed after Reduce: 0
+
+N=1592. Milliseconds passed: 1603
+
+X: 16753.189453
+
+N=1768. Milliseconds passed after Generate: 1
+
+N=1768. Milliseconds passed after Map: 74
+
+N=1768. Milliseconds passed after Map on GPU: 0
+
+N=1768. Milliseconds passed after Merge: 0
+
+N=1768. Milliseconds passed after Merge on GPU: 0
+
+N=1768. Milliseconds passed after Sort: 2086
+
+N=1768. Milliseconds passed after Sort on GPU: 8
+
+N=1768. Milliseconds passed after Reduce: 3
+
+N=1768. Milliseconds passed: 2164
+
+X: 18640.257812
+
+N=1944. Milliseconds passed after Generate: 4
+
+N=1944. Milliseconds passed after Map: 74
+
+N=1944. Milliseconds passed after Map on GPU: 1
+
+N=1944. Milliseconds passed after Merge: 0
+
+N=1944. Milliseconds passed after Merge on GPU: 0
+
+N=1944. Milliseconds passed after Sort: 2796
+
+N=1944. Milliseconds passed after Sort on GPU: 7
+
+N=1944. Milliseconds passed after Reduce: 2
+
+N=1944. Milliseconds passed: 2876
+
+X: 20415.869141
